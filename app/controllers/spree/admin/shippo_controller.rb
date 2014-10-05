@@ -1,16 +1,18 @@
 class Spree::Admin::ShippoController < Spree::Admin::BaseController
     @@base_url = 'https://goshippo.com/'
+    @@spree_endpoint = 'spree/orders/'
+    @@spree_shippo_user_email = "+spree@goshippo.com"
 
     def show
         get_shippo_user
     end
 
     def view_order
-        redirect_to_url( @@base_url + 'spree/orders/' + params[:id] )
+        redirect_to_url( @@base_url + @@spree_endpoint + params[:id] )
     end
 
     def view_orders
-        redirect_to_url( @@base_url + 'spree/orders/' )
+        redirect_to_url( @@base_url + @@spree_endpoint )
     end
 
     private
@@ -40,7 +42,7 @@ class Spree::Admin::ShippoController < Spree::Admin::BaseController
     end
 
     def build_shippo_user_email
-        Spree::Store.name.gsub(/[^0-9A-Za-z]/, '').downcase + "+spree@goshippo.com"
+        Spree::Store.name.gsub(/[^0-9A-Za-z]/, '').downcase + @@spree_shippo_user_email
     end
 
     def redirect_to_url(url)
