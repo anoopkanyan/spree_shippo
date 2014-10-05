@@ -1,5 +1,10 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+    Spree:
+        view_on_shippo: "View on Shippo"
+        connect_shippo: "Connect Shippo"
+        shippo_settings: "Shippo Settings"
+        connection_page_heading: "Shippo Connection Settings"
+        connection_status_description: "You have successfully connected your store with Shippo with the following settings:"
+        connection_user: "Spreecommerce user:"
+        conenction_api_token: "Spreecommerce API token:"
+        open_shippo: "Open Shippo now"
