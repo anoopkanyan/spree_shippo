@@ -1,9 +1,6 @@
-require 'highline/import'
-load 'spree/user.rb'
+class Spree::Admin::ShippoController < Spree::Admin::BaseController
 
-module Spree
-  HomeController.class_eval do
-    def create_shippo_user
+    def show
         password = SecureRandom.hex(8)
         storename = Spree::Store.name.gsub(/[^0-9A-Za-z]/, '').downcase
         email = storename + "+spree@goshippo.com"
@@ -15,9 +12,7 @@ module Spree
         }
         if Spree::User.find_by_email(email)
             admin = Spree::User.find_by_email(email)
-            puts " Found and used"
         else
-            puts "NOt found lets create"
             admin = Spree::User.new(attributes)
             if admin.save
                 role = Spree::Role.find_or_create_by(name: 'admin')
@@ -26,8 +21,7 @@ module Spree
             end
         end
         admin.generate_spree_api_key!
-        puts @spree_current_user.inspect
-        @user = Spree::User.find_by_email(email)
+        @user = Spree::User.find_by_email(email)    
     end
-  end
+
 end
