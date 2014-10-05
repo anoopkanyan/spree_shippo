@@ -1,27 +1,61 @@
 class Spree::Admin::ShippoController < Spree::Admin::BaseController
+    @@base_url = 'https://goshippo.com/'
 
     def show
-        password = SecureRandom.hex(8)
-        storename = Spree::Store.name.gsub(/[^0-9A-Za-z]/, '').downcase
-        email = storename + "+spree@goshippo.com"
-        attributes = {
-            :password => password,
-            :password_confirmation => password,
-            :email => email,
-            :login => email,
-        }
-        if Spree::User.find_by_email(email)
-            admin = Spree::User.find_by_email(email)
-        else
+        get_shippo_user
+    end
+
+    def view_order
+        redirect_to_url( @@base_url + 'spree/orders/' + params[:id] )
+    end
+
+    def view_orders
+        redirect_to_url( @@base_url + 'spree/orders/' )
+    end
+
+    private
+
+    def get_shippo_user
+        if !retrieve_shippo_user
+            password = SecureRandom.hex(8)
+            attributes = {
+                :password => password,
+                :password_confirmation => password,
+                :email => email,
+                :login => email,
+            }
             admin = Spree::User.new(attributes)
             if admin.save
                 role = Spree::Role.find_or_create_by(name: 'admin')
                 admin.spree_roles << role
+                admin.generate_spree_api_key!
                 admin.save
             end
         end
-        admin.generate_spree_api_key!
-        @user = Spree::User.find_by_email(email)    
+        @user = retrieve_shippo_user
+    end
+
+    def retrieve_shippo_user
+        Spree::User.find_by_email(build_shippo_user_email)
+    end
+
+    def build_shippo_user_email
+        Spree::Store.name.gsub(/[^0-9A-Za-z]/, '').downcase + "+spree@goshippo.com"
+    end
+
+    def redirect_to_url(url)
+        uri = URI(url)
+        params = get_store_params
+        uri.query = params.to_query
+        redirect_to uri.to_s
+    end
+
+    def get_store_params
+        { 
+            :store_name => Spree::Store.current.name, 
+            :store_url => Spree::Store.current.url,
+            :email => spree_current_user.email
+        }
     end
 
 end
