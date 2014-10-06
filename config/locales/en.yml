@@ -6,5 +6,5 @@ en:
         connection_page_heading: "Shippo Connection Settings"
         connection_status_description: "You have successfully connected your store with Shippo with the following settings:"
         connection_user: "Spreecommerce user:"
-        conenction_api_token: "Spreecommerce API token:"
+        connection_api_token: "Spreecommerce API token:"
         open_shippo: "Open Shippo now"

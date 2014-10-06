@@ -1,14 +1,14 @@
-<h1 style="margin-top:15px"><%= Spree.t(:connection_page_heading) %></h1>
+<h1 style="margin-top:15px"><%=t 'Spree.connection_page_heading' %></h1>
 <div style="float:left;width:70%">
 	<p style="margin:30px 0 20px 0">
-		<%= Spree.t(:connection_status_description) %>
+		<%=t 'Spree.connection_status_description' %>
 	</p>
 	<ul style="margin: 0 0 30px 20px">
-		<li><strong><%= Spree.t(:conenction_user) %></strong> <%= @user.email %></li>
-		<li><strong><%= Spree.t(:conenction_api_token) %></strong> <%= @user.spree_api_key %></li>
+		<li><strong><%=t 'Spree.connection_user' %></strong> <%= @user.email %></li>
+		<li><strong><%=t 'Spree.connection_api_token' %></strong> <%= @user.spree_api_key %></li>
 	</ul>
 	<%= button_link_to Spree.t(:open_shippo), "https://goshippo.com/user/orders", :icon => "" %>
 </div>
 <div style="float:left;width:30%;margin-top:30px;">
-	<a href="https://goshippo.com/user/orders"><img src="https://shippo-static.s3.amazonaws.com/img/logo/logo_v2_withicon_darkgrey.svg" width="250px"></a>
+	<a href="https://goshippo.com/"><img src="https://shippo-static.s3.amazonaws.com/img/logo/logo_v2_withicon_darkgrey.svg" width="250px"></a>
 </div>
