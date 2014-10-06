@@ -1,7 +1,14 @@
-SpreeShippoLabels
+Shippo Spree Extension
 =================
 
-Introduction goes here.
+The Shippo Spree extensions connects a Spree store with Shippo. Shippo will import all orders via the Spree API, allowing you to obtain shipping labels for your shipping carriers on goshippo.com. Supported carriers include USPS, UPS, FedEx, DHL Express, Canada Post and many others. 
+
+The extension will autoamtically create a new Spree user that you need to enter for your Shippo account. The setup is easy:
+
+1. Create a free Shippo account at https://goshippo.com.
+2. Enter your Spree's Shippo user API token int he Shippo Spree settings.
+
+Your orders will then be imported automatically. Every shipping label you purchase on Shippo will set the Spree order automatically to "Shipped" and add the tracking number.
 
 Installation
 ------------
@@ -36,4 +43,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_shippo_labels/factories'
 ```
 
-Copyright (c) 2014 [name of extension creator], released under the New BSD License
+Copyright (c) 2014 Shippo, released under the New BSD License
