@@ -1,6 +1,6 @@
 class Spree::Admin::ShippoController < Spree::Admin::BaseController
     @@base_url = 'https://goshippo.com/'
-    @@spree_endpoint = 'spree/orders/'
+    @@spree_endpoint = 'spreecommerce/'
     @@spree_shippo_user_email = "+spree@goshippo.com"
 
     def show
