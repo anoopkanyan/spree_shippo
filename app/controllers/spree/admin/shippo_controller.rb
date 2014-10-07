@@ -19,6 +19,7 @@ class Spree::Admin::ShippoController < Spree::Admin::BaseController
 
     def get_shippo_user
         if !retrieve_shippo_user
+            email = build_shippo_user_email
             password = SecureRandom.hex(8)
             attributes = {
                 :password => password,
