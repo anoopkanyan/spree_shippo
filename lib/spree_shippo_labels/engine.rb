@@ -4,6 +4,9 @@ module SpreeShippoLabels
     isolate_namespace Spree
     engine_name 'spree_shippo_labels'
 
+    # add lib module to autoload path
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
