@@ -1,0 +1,1 @@
+Rails.configuration.shippo_register_automatically = :false

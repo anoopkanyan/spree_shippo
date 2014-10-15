@@ -26,6 +26,17 @@ bundle
 bundle exec rails g spree_shippo_labels:install
 ```
 
+Configuration
+------------
+
+The Shippo extension allows you to automatically register a new Shippo user, if the email address has not been registered on Shippo yet. To opt into auto-registration, set the "shippo_register_automatically" configuration variable in config/initializers/spree_shippo_labels.rb to true:
+
+```ruby
+Rails.configuration.shippo_register_automatically = :true
+```
+
+After connecting with Shippo for the first time, Shippo will automatically create a Shippo account and send an email to the email address set in Spree.
+
 Testing
 -------
 
