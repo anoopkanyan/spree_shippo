@@ -5,25 +5,13 @@
 		<%=t 'Spree.connection_description' %>
 	</p>
 
-	<h3 style="margin: 25px 0 10px 0">1. <%=t 'Spree.connection_step1_heading' %></h3> 
-	<p>
-		<%=t 'Spree.connection_step1_text' %>
-	</p>
 	<p style="margin: 20px 0 20px 10px">
-		<%= button_link_to (I18n.t 'Spree.open_shippo'), admin_shippo_orders_path, :icon => "" %>
-	</p>
-	
-	<h3 style="margin: 35px 0 10px 0">2. <%=t 'Spree.connection_step2_heading' %></h3>
-	<p><%=t 'Spree.connection_step2_text' %></p>
-	<ul style="margin: 10px 0 50px 30px">
-		<li><strong><%=t 'Spree.connection_user' %></strong> <%= @user.email %></li>
-		<li><strong><%=t 'Spree.connection_api_token' %></strong> <%= @user.spree_api_key %></li>
-	</ul>
-	
-	<hr>
-
-	<p style="margin:30px 0 20px 0; text-align:center;">
-		<%=t 'Spree.connection_result' %>
+		<%= form_tag(@shippo_connect_endpoint, method: :post, :target => "blank") %>
+			<%= hidden_field_tag 'store_url', @store_url %>
+			<%= hidden_field_tag 'store_name', @store_name %>
+			<%= hidden_field_tag 'email', @user.email %>
+			<%= submit_tag (I18n.t 'Spree.open_shippo') %>
+		</form>
 	</p>
 
 </div>
