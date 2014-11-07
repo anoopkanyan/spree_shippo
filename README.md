@@ -6,7 +6,7 @@ The Shippo Spree extensions connects a Spree store with Shippo. Shippo will impo
 The extension will autoamtically create a new Spree user that you need to enter for your Shippo account. The setup is easy:
 
 1. Create a free Shippo account at https://goshippo.com.
-2. Enter your Spree's Shippo user API token int he Shippo Spree settings.
+2. Enter your Spree's Shippo user API token in the Shippo Spree settings.
 
 Your orders will then be imported automatically. Every shipping label you purchase on Shippo will set the Spree order automatically to "Shipped" and add the tracking number.
 
@@ -25,6 +25,12 @@ Bundle your dependencies and run the installation generator:
 bundle
 bundle exec rails g spree_shippo_labels:install
 ```
+
+Configuration
+------------
+
+The Shippo extension allows chosen partners to automate the signup flow of Spree users. To obtain the required shippo_partner_key and shippo_partner_secret, please contact Shippo at support@goshippo.com. For individual stores, the configuration variables can be ignored.
+
 
 Testing
 -------

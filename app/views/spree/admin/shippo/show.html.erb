@@ -10,6 +10,8 @@
 			<%= hidden_field_tag 'store_url', @store_url %>
 			<%= hidden_field_tag 'store_name', @store_name %>
 			<%= hidden_field_tag 'email', @user.email %>
+			<%= hidden_field_tag 'partner_key', @partner_key %>
+			<%= hidden_field_tag 'api_token', @api_token %>
 			<%= submit_tag (I18n.t 'Spree.open_shippo') %>
 		</form>
 	</p>
@@ -17,5 +19,5 @@
 </div>
 
 <div style="float:left;width:30%;margin:30px 0 0 50px;">
-	<a href="https://goshippo.com/"><img src="https://shippo-static.s3.amazonaws.com/img/logo/logo_v2_withicon_darkgrey.svg" width="250px"></a>
+	<a href="https://goshippo.com/" target="blank"><img src="https://shippo-static.s3.amazonaws.com/img/logo/logo_v2_withicon_darkgrey.svg" width="250px"></a>
 </div>

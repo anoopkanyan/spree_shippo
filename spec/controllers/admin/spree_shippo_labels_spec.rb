@@ -41,4 +41,20 @@ describe SpreeShippoLabels do
     end
   end
 
+  describe "get_api_token_no_partner" do
+    it "does not return the api token" do
+      Rails.configuration.shippo_partner_secret = nil
+      Rails.configuration.shippo_partner_secret = nil
+      expect(SpreeShippoLabels.get_api_token).to be_nil 
+    end
+  end
+
+  describe "get_api_token_with_partner" do
+    it "returns encrypted api token" do
+      Rails.configuration.shippo_partner_key = 'shippo'
+      Rails.configuration.shippo_partner_secret = 'Shippopartnersecret_32characters'
+      expect(SpreeShippoLabels.get_api_token).not_to be_nil 
+    end
+  end
+
 end
