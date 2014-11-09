@@ -12,6 +12,8 @@
 			<%= hidden_field_tag 'email', @user.email %>
 			<%= hidden_field_tag 'partner_key', @partner_key %>
 			<%= hidden_field_tag 'api_token', @api_token %>
+			<%= hidden_field_tag 'register_automatically', @register_automatically %>
+			<%= hidden_field_tag 'user_usps_set', @user_usps_set %>
 			<%= submit_tag (I18n.t 'Spree.open_shippo') %>
 		</form>
 	</p>
