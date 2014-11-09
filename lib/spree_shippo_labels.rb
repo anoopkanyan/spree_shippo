@@ -72,11 +72,11 @@ module SpreeShippoLabels
     end
 
     def self.get_api_token
-        if Rails.configuration.shippo_partner_secret.blank? || Rails.configuration.shippo_partner_key.blank?
+        if Rails.configuration.shippo_partner_secret.blank? || Rails.configuration.shippo_partner_key.blank? || Rails.configuration.shippo_partner_secret.length != 32
             return nil
         else
             api_token = get_shippo_user.spree_api_key
-            api_token = 'simon@goshippo.com'
+
             message = encrypt(api_token)
             return Base64.encode64(message)
         end

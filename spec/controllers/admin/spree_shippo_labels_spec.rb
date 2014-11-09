@@ -57,4 +57,12 @@ describe SpreeShippoLabels do
     end
   end
 
+  describe "get_api_token_with_partner_wrong_length" do
+    it "does not return the api token" do
+      Rails.configuration.shippo_partner_key = 'shippo'
+      Rails.configuration.shippo_partner_secret = 'Shippopartnersecret31characters'
+      expect(SpreeShippoLabels.get_api_token).to be_nil 
+    end
+  end
+
 end
