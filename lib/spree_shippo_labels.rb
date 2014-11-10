@@ -72,13 +72,16 @@ module SpreeShippoLabels
     end
 
     def self.get_api_token
-        if Rails.configuration.shippo_partner_secret.blank? || Rails.configuration.shippo_partner_key.blank? || Rails.configuration.shippo_partner_secret.length != 32
+        if Rails.configuration.shippo_partner_secret.blank? || Rails.configuration.shippo_partner_key.blank?
             return nil
         else
-            api_token = get_shippo_user.spree_api_key
-
-            message = encrypt(api_token)
-            return Base64.encode64(message)
+            secret = Base64.decode64(Rails.configuration.shippo_partner_secret)
+            if secret.length == 32
+                api_token = get_shippo_user.spree_api_key
+                message = encrypt(api_token)
+                return Base64.encode64(message)
+            end
+            return nil
         end
     end
 
@@ -89,7 +92,7 @@ module SpreeShippoLabels
         # create AES-256 Cipher
         cipher = OpenSSL::Cipher::AES.new(256, :CBC)
         cipher.encrypt
-        cipher.key = Rails.configuration.shippo_partner_secret
+        cipher.key = Base64.decode64(Rails.configuration.shippo_partner_secret)
         # create new, random iv
         iv = OpenSSL::Cipher::AES.new(256, :CBC).random_iv
         cipher.iv = iv
