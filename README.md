@@ -31,6 +31,13 @@ Configuration
 
 The Shippo extension allows chosen partners to automate the signup flow of Spree users. To obtain the required shippo_partner_key and shippo_partner_secret, please contact Shippo at support@goshippo.com. For individual stores, the configuration variables can be ignored.
 
+#### Note
+This extension is for platform partners, who manage hundreds or thousands of individual Spree sub-stores. This extension allows these partners to automatically connect each store. Our current version doesn't support Spree 3.0. Unfortunately, it's not in our short-term roadmap to bump the version.
+
+For individual stores, however, you can easily integrate your store directly on our platform at [https://goshippo.com/user/connect/](https://goshippo.com/user/connect/) by providing your ***Store URL***, ***Store Name*** and ***API Access Token***. 
+
+If you have a specific request regarding the integration of multiple stores, please contact support@goshippo.com. Our team will help you find the best solution! If you're an individual store, just go ahead and connect instantly at [https://goshippo.com/user/connect/](https://goshippo.com/user/connect/).
+
 
 Testing
 -------
