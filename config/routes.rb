@@ -4,4 +4,9 @@ Spree::Core::Engine.routes.draw do
 		get 'shippo/orders/', :to => 'shippo#view_orders', :as => "shippo_orders"
 		get 'shippo/order/:id', :to => 'shippo#view_order', :as => "shippo_order"
   	end
+  	
+  	namespace :api do
+     get "goshipments/package", to: 'goshipments#package_type'
+  end
+  
 end
