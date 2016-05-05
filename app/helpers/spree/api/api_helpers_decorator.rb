@@ -11,6 +11,13 @@ module Spree
         :goshippo_base_api_url,:default
       ]
       
+      #add GoShippo ids to shipment attributes whicah are to be rendered in the API response
+    
+      @@shipment_attributes = [:id, :tracking, :number, :cost, :shipped_at, :state,
+      :parcel_object_id, :shipment_obj_id, :transaction_obj_id,
+      :label_url, :goshippo_address_obj, :return_shipment_obj_id, :return_label_url,
+      :refund_object_id]
+      
     end 
   end
 end
