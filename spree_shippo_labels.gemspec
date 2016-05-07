@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description = 'The Shippo Spree extensions connects a Spree store with Shippo. Shippo will import all orders via the Spree API, allowing you to obtain shipping labels for your shipping carriers on goshippo.com. Supported carriers include USPS, UPS, FedEx, DHL Express, Canada Post and many others.'
   s.required_ruby_version = '>= 1.9.3'
 
-  s.author    = 'sunny'
+  s.author    = 'Anoop'
   s.email     = 'support@goshippo.com'
   s.homepage  = 'https://goshippo.com'
 
