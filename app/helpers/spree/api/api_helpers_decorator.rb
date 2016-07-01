@@ -15,7 +15,18 @@ module Spree
       @@shipment_attributes = [:id, :tracking, :number, :cost, :shipped_at, :state,
       :parcel_object_id, :tracking_url, :transaction_obj_id, :shipment_object_id,
       :label_url, :return_shipment_obj_id, :return_label_url,
-      :refund_object_id]
+      :refund_object_id, :label_cost, :is_label]
+      
+      
+      #add shipments to permitted order attributes
+      @@order_attributes = [
+        :id, :number, :item_total, :total, :ship_total, :state, :adjustment_total,
+        :user_id, :created_at, :updated_at, :completed_at, :payment_total,
+        :shipment_state, :payment_state, :email, :special_instructions, :channel,
+        :included_tax_total, :additional_tax_total, :display_included_tax_total,
+        :display_additional_tax_total, :tax_total, :currency, :considered_risky,
+        :canceler_id, :shipments
+      ]
       
     end 
   end
