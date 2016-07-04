@@ -26,6 +26,21 @@ bundle
 bundle exec rails g spree_shippo_labels:install
 ```
 
+Inside your spree app, add the following piece of code to the environment/initializers/spree.rb at the very bottom. 
+
+```
+Spree::PermittedAttributes.shipment_attributes << :tracking_url
+Spree::PermittedAttributes.shipment_attributes << :parcel_object_id
+Spree::PermittedAttributes.shipment_attributes << :shipment_obj_id
+Spree::PermittedAttributes.shipment_attributes << :transaction_obj_id
+Spree::PermittedAttributes.shipment_attributes << :label_url
+Spree::PermittedAttributes.shipment_attributes << :return_shipment_obj_id
+Spree::PermittedAttributes.shipment_attributes << :return_label_url
+Spree::PermittedAttributes.shipment_attributes << :refund_object_id
+Spree::PermittedAttributes.shipment_attributes << :label_cost
+Spree::PermittedAttributes.shipment_attributes << :is_label
+```
+
 Configuration
 ------------
 
