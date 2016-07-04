@@ -15,7 +15,7 @@ module Spree
       @@shipment_attributes = [:id, :tracking, :number, :cost, :shipped_at, :state,
       :parcel_object_id, :tracking_url, :transaction_obj_id, :shipment_object_id,
       :label_url, :return_shipment_obj_id, :return_label_url,
-      :refund_object_id, :label_cost, :is_label]
+      :refund_object_id, :label_cost, :is_label, :object_id]
       
       
       #add shipments to permitted order attributes

@@ -7,6 +7,7 @@ Spree::Core::Engine.routes.draw do
   	
   	namespace :api do
      get "goshipments/package", to: 'goshipments#package_type'
+     post 'goshipments/update' => 'goshipments#receive'
   end
   
 end
