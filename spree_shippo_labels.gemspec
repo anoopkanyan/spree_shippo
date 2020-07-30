@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_shippo_labels'
-  s.version     = '1.0'
+  s.version     = '2.0'
   s.summary     = 'Simple shipping label purchase via Shippo.'
   s.description = 'The Shippo Spree extensions connects a Spree store with Shippo. Shippo will import all orders via the Spree API, allowing you to obtain shipping labels for your shipping carriers on goshippo.com. Supported carriers include USPS, UPS, FedEx, DHL Express, Canada Post and many others.'
   s.required_ruby_version = '>= 1.9.3'
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '= 3.0.4'
+  s.add_dependency 'spree_core', '>= 3.7.0', '< 5.0'
 
   s.add_development_dependency 'capybara', '~> 2.4'
   s.add_development_dependency 'coffee-rails'
